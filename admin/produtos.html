@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/style.css">
+
+    <script src="produtos-admin.js" defer></script>     <!-- EU NOVO - ESTAVA EMBAIXO -->
+    <script src="auth-admin.js" defer></script>         <!-- EU NOVO - ESTAVA EMBAIXO -->
+
+    <title>Painel de Produtos</title>
+</head>
+
+<body>
+    <header>
+        <h1>Painel Administrativo</h1>
+
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="pedidos.html">Pedidos</a>
+            <a href="clientes.html">Clientes</a>
+        </nav>
+    </header>
+
+    <section class="admin-container">
+        <h2 class="title_produtos_h2">Cadastrar, Editar e Excluir Produtos</h2>
+
+        <form id="formProduto">
+            <input type="text" id="nome" placeholder="Nome do produto" required>
+
+            <select id="categoria" required>
+                <option value="">Selecione uma categoria</option>
+                <option value="Informática">Informática</option>
+                <option value="Esportes">Esportes</option>
+                <option value="Moda e Vestuário">Moda e Vestuário</option>
+                <option value="Aniversário e Festas">Aniversário e Festas</option>
+            </select>
+
+            <input type="number" id="preco" step="0.01" placeholder="Preço" required>
+            <input type="number" id="estoque" placeholder="Quantidade em estoque" required>
+            <input type="text" id="imagem" placeholder="Exemplo: img/produto.jpg">
+            <textarea id="descricao" placeholder="Descrição do produto"></textarea>
+
+            <button type="submit">Salvar Produto</button>
+        </form>
+    </section>
+
+    <section class="admin-container">
+        <h2>Produtos Cadastrados</h2>
+
+        <table id="tabelaProdutos">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Produto</th>
+                    <th>Categoria</th>
+                    <th>Preço</th>
+                    <th>Estoque</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody></tbody>
+        </table>
+    </section>
+</body>
+</html>

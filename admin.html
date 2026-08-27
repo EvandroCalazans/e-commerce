@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel Admin</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+
+<h1>Painel Admin</h1>
+
+<!-- BOTÃO FORA DO FORM -->
+<button type="button" onclick="logout()">Sair</button>
+
+<hr>
+
+<form id="formProduto">
+
+    <input type="text" id="nome" placeholder="Nome">
+    <input type="number" id="preco" placeholder="Preço">
+    <input type="text" id="descricao" placeholder="Descrição">
+    <input type="text" id="imagem" placeholder="Imagem URL">
+
+    <button type="submit">Criar Produto</button>
+
+</form>
+
+<hr>
+
+<h2>Produtos</h2>
+<div id="lista-produtos"></div>
+
+<script src="assets/admin.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/style.css">
+
+    <script src="auth-admin.js" defer></script>
+    <script src="cliente-detalhes.js" defer></script>
+
+    <title>Histórico do Cliente</title>
+</head>
+
+<body>
+    <header>
+        <h1>Histórico do Cliente</h1>
+
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="clientes.html">Clientes</a>
+            <a href="pedidos.html">Pedidos</a>
+        </nav>
+    </header>
+
+    <section class="admin-container">
+        <h2 id="nomeCliente">Cliente</h2>
+
+        <div id="informacoesCliente">
+            <p>Carregando informações...</p>
+        </div>
+
+        <hr>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID Pedido</th>
+                    <th>Data</th>
+                    <th>Valor</th>
+                    <th>Status</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+
+            <tbody id="listaHistorico"></tbody>
+        </table>
+
+        <h2 id="totalComprado"></h2>
+
+        <div class="acoes-detalhes"><button onclick="voltarClientes()">Voltar</button></div>
+    </section>
+</body>
+</html>

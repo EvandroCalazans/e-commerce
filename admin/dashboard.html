@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="dashboard-layout.css">
+
+    <script src="auth-admin.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="dashboard.js" defer></script>
+    <script src="dashboard-graficos.js" defer></script>
+    <script src="resumo-dashboard.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels" defer></script>
+
+    <title>Dashboard</title>
+</head>
+<body>
+    <header class="admin-header">
+        <h1>Dashboard</h1>
+
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="pedidos.html">Pedidos</a>
+            <a href="clientes.html">Clientes</a>
+        </nav>
+    </header>
+
+    <h2 class="title_dashboard_h2">Resumo</h2>
+
+    <section class="dashboard-container"> <!-- CARDS PRINCIPAIS -->
+        <div class="dashboard-cards">
+            <div class="dashboard-card card-produtos">
+                <h3>📦 Produtos</h3>
+
+                <p id="totalProdutos">0</p>
+            </div>
+
+            <div class="dashboard-card card-pedidos">
+                <h3>🛒 Pedidos</h3>
+
+                <p id="totalPedidos">0</p>
+            </div>
+
+            <div class="dashboard-card card-faturamento">
+                <h3>💰 Faturamento</h3>
+
+                <p id="faturamentoTotal">R$ 0,00</p>
+            </div>
+
+            <div class="dashboard-card card-pendentes">
+                <h3>⏳ Pendentes</h3>
+
+                <p id="pedidosPendentes">0</p>
+            </div>
+        </div>
+
+        <div class="dashboard-cards">
+            <div class="dashboard-card card-pagos">
+                <h3>✅ Pagos</h3>
+
+                <p id="pedidosPagos">0</p>
+            </div>
+
+            <div class="dashboard-card card-enviados">
+                <h3>🚚 Enviados</h3>
+
+                <p id="pedidosEnviados">0</p>
+            </div>
+
+            <div class="dashboard-card card-entregues">
+                <h3>📬 Entregues</h3>
+
+                <p id="pedidosEntregues">0</p>
+            </div>
+
+            <div class="dashboard-card card-cancelados">
+                <h3>❌ Cancelados</h3>
+
+                <p id="pedidosCancelados">0</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="resumo-inteligente"> <!-- RESUMO INTELIGENTE -->
+        <div class="resumo-cards">
+            <div class="resumo-card">
+                <h3>👤 Melhor Cliente</h3>
+
+                <p id="melhorCliente">Carregando...</p>
+            </div>
+
+            <div class="resumo-card">
+                <h3>🛒 Último Pedido</h3>
+
+                <p id="ultimoPedido">Carregando...</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="estoque-section"><!-- ESTOQUE BAIXO -->
+        <h2>⚠️ Produtos com Estoque Baixo</h2>
+
+        <div id="estoqueBaixo"><p>Nenhum produto com estoque baixo.</p></div>
+    </section>
+
+    <section class="vendidos-section"><!-- PRODUTOS MAIS VENDIDOS -->
+        <h2>🏆 Produtos Mais Vendidos</h2>
+
+        <div id="maisVendidos"><p>Carregando...</p></div>
+    </section>
+
+    <section class="graficos-section"> <!-- GRÁFICOS -->
+        <h2>📊 Análise de Vendas</h2>
+
+        <div class="graficos-dashboard">
+            <div class="grafico-card">
+                <h3>Pedidos por Status</h3>
+
+                <canvas id="graficoStatus"></canvas>
+            </div>
+
+            <div class="grafico-card">
+                <h3>Produtos Mais Vendidos</h3>
+
+                <div class="grafico-toolbar">
+                    <label for="tipoGraficoProdutos">Visualização:</label>
+
+                    <select id="tipoGraficoProdutos">
+                        <option value="bar" selected>Barras</option>
+                        <option value="line">Linha</option>
+                        <option value="pie">Pizza</option>
+                        <option value="doughnut">Rosca</option>
+                    </select>
+                </div>
+
+                <div id="containerGraficoProdutos">
+                    <canvas id="graficoProdutos"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+
+

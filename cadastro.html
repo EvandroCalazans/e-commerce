@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/style.css">
+
+    <script src="cadastro.js" defer></script>
+
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <header>
+        <h1>Minha Loja Virtual</h1>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="login.html">Login</a>
+            <a href="cadastro.html" class="active">Cadastro</a>
+            <a href="carrinho.html">Carrinho</a>
+        </nav>
+    </header>
+
+    <div class="formulario">
+        <h2>Cadastro de Cliente</h2>
+
+        <form id="cadastroForm" autocomplete="off">
+            <input type="text" id="nome" placeholder="Nome Completo" autocomplete="off" required>
+            <input type="email" id="email" placeholder="E-mail" autocomplete="off" required>
+            <input type="password" id="senha" placeholder="Senha" autocomplete="new-password" required>
+            <input type="tel" id="telefone" placeholder="Telefone">
+        
+            <button class="btn" type="submit">Cadastrar</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/style.css">
+
+    <script src="assets/carrinho.js"></script>
+    <script src="assets/produtos.js" defer></script>
+
+    <title>Produtos</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1>Minha Loja Virtual</h1>
+        </div>
+    
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="produtos.html" class="active">Produtos</a>
+            <a href="login.html">Entrar</a>
+            <a href="cadastro.html">Cadastrar</a>
+            <a href="carrinho.html">🛒 Carrinho<span class="badge" id="contador-carrinho">0</span></a>
+        </nav>
+    </header>
+
+    <div class="barra-filtros">
+        <input type="text" placeholder="Buscar produtos..." class="busca">
+    
+        <div id="categorias" class="categorias">  
+            <button class="categoria-btn ativo" data-categoria="todos">Todos</button>
+        </div>
+     
+        <select id="ordenacao">  
+            <option value="nome">Nome (A-Z)</option>   
+            <option value="menor">Menor preço</option> 
+            <option value="maior">Maior preço</option>  
+        </select>  
+    </div>
+    
+    <section id="lista-produtos" class="produtos"></section>
+</body>
+</html>

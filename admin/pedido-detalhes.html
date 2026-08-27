@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/style.css">
+
+    <script src="auth-admin.js" defer></script>
+    <script src="pedido-detalhes.js" defer></script>
+
+    <title>Detalhes do Pedido</title>
+</head>
+
+<body>
+    <header>
+        <h1>Detalhes do Pedido</h1>
+
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="pedidos.html">Pedidos</a>
+            <a href="clientes.html">Clientes</a>
+        </nav>
+    </header>
+
+    <section class="admin-container">
+        <h2 id="tituloPedido">Pedido</h2>
+
+        <div id="informacoesPedido"><p>Carregando informações...</p></div>
+
+        <hr>
+
+        <h3>Status do Pedido</h3>
+
+        <select id="statusPedido">
+            <option value="Pendente">Pendente</option>
+            <option value="Pago">Pago</option>
+            <option value="Enviado">Enviado</option>
+            <option value="Entregue">Entregue</option>
+            <option value="Cancelado">Cancelado</option>
+        </select>
+
+        <button onclick="salvarStatus()">Salvar Status</button>
+
+        <hr>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Imagem</th>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Preço Unitário</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+
+            <tbody id="listaItens"></tbody>
+        </table>
+
+        <div id="resumoPedido">
+            <p id="subtotalPedido"></p>     
+            <p id="fretePedido"></p>       
+            <h2 id="totalPedido"></h2>     
+        </div>
+
+        <button onclick="voltarPedidos()">Voltar</button>
+    </section>  
+</body>
+</html>

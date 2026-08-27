@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- EU NOVO -->
+
+    <link rel="stylesheet" href="assets/style.css">
+
+    <script src="assets/login.js" defer></script>
+
+    <title>Login</title>
+</head>
+
+<body>
+    <header>
+        <h1>Minha Loja Virtual</h1>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="login.html" class="active">Login</a>
+            <a href="cadastro.html">Cadastro</a>
+            <a href="carrinho.html">Carrinho</a>
+        </nav>
+    </header>
+
+    <div class="formulario">
+        <h2>Login</h2>
+
+        <form id="loginForm" autocomplete="off">
+            <input
+                type="email"
+                placeholder="E-mail"
+                autocomplete="off"
+                required
+            >
+        
+            <input type="password" placeholder="Senha" autocomplete="new-password" required>
+        
+            <button class="btn" type="submit">Entrar</button>
+        </form>
+    </div>
+</body>
+</html>

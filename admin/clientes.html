@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Clientes</title>
+
+    <link rel="stylesheet" href="../assets/style.css">
+
+    <script src="clientes-admin.js" defer></script>
+    <script src="auth-admin.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Clientes</h1>
+
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="pedidos.html">Pedidos</a>
+            <a href="clientes.html">Clientes</a>
+        </nav>
+    </header>
+
+    <section class="admin-container">
+
+        <h2 class="title_clientes_h2">Lista de Clientes</h2>
+
+        <div class="filtro-clientes">
+            <label for="buscarCliente">
+                Buscar:
+            </label>
+        
+            <input
+                type="text"
+                id="buscarCliente"
+                placeholder="Nome ou e-mail">   
+        </div>
+        
+        <br>
+
+        <table>
+            <thead>
+                <tr>
+                    <th data-coluna="id">ID</th>
+                    <th data-coluna="nome">Nome</th>
+                    <th data-coluna="email">E-mail</th>
+                    <th data-coluna="pedidos">Pedidos</th>
+                    <th data-coluna="total_comprado">Total Comprado</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+        
+            <tbody id="listaClientes"></tbody>
+        </table>
+    </section>
+</body>
+
+</html>

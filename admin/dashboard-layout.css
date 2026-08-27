@@ -1,0 +1,482 @@
+/* =====================================
+   DASHBOARD ADMIN - LAYOUT GERAL
+===================================== */
+
+
+.dashboard-container {
+
+    max-width: 1400px;
+
+    margin: 30px auto;
+
+    padding: 20px;
+
+}
+
+
+
+
+/* =====================================
+   TÍTULOS
+===================================== */
+
+/* 
+.dashboard-container h2 {
+
+    margin: 35px 0 20px;
+
+    color: #333;
+
+    font-size: 26px;
+
+} */
+
+
+
+/* =====================================
+   GRID DOS CARDS
+===================================== */
+
+
+.dashboard-cards {
+
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(220px, 1fr)
+    );
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+
+}
+
+
+
+
+/* =====================================
+   CARDS PRINCIPAIS
+===================================== */
+
+
+.dashboard-card {
+
+
+    background: #ffffff;
+
+
+    border-radius: 15px;
+
+
+    padding: 25px;
+
+
+    text-align: center;
+
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,0.12);
+
+
+    transition:
+    transform .3s,
+    box-shadow .3s;
+
+
+}
+
+
+
+.dashboard-card:hover {
+
+
+    transform: translateY(-5px);
+
+
+    box-shadow:
+    0 10px 20px rgba(0,0,0,0.18);
+
+
+}
+
+
+
+
+.dashboard-card h3 {
+
+
+    font-size: 18px;
+
+
+    margin-bottom: 15px;
+
+
+    color: #555;
+
+
+}
+
+
+
+
+.dashboard-card p {
+
+
+    font-size: 32px;
+
+
+    font-weight: bold;
+
+
+    margin: 0;
+
+
+    color: #222;
+
+
+}
+
+
+
+
+/* =====================================
+   CORES DOS INDICADORES
+===================================== */
+
+
+.dashboard-card.card-produtos {
+
+    border-top: 6px solid #3498db;
+
+}
+
+
+
+.dashboard-card.card-pedidos {
+
+    border-top: 6px solid #9b59b6;
+
+}
+
+
+
+.dashboard-card.card-faturamento {
+
+    border-top: 6px solid #27ae60;
+
+}
+
+
+
+.dashboard-card.card-pendentes {
+
+    border-top: 6px solid #f1c40f;
+
+}
+
+
+
+.dashboard-card.card-pagos {
+
+    border-top: 6px solid #2ecc71;
+
+}
+
+
+
+.dashboard-card.card-enviados {
+
+    border-top: 6px solid #2980b9;
+
+}
+
+
+
+.dashboard-card.card-entregues {
+
+    border-top: 6px solid #16a085;
+
+}
+
+
+
+.dashboard-card.card-cancelados {
+
+    border-top: 6px solid #e74c3c;
+
+}
+
+/* ========================== PARTE DOIS ================= */
+/* =====================================
+   RESUMO INTELIGENTE
+===================================== */
+
+
+.resumo-inteligente {
+
+    margin-top: 40px;
+
+}
+
+
+
+.resumo-cards {
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(300px,1fr));
+
+    gap: 25px;
+
+}
+
+
+
+
+.resumo-card {
+
+
+    background:#ffffff;
+
+
+    padding:25px;
+
+
+    border-radius:15px;
+
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,0.12);
+
+
+}
+
+
+
+.resumo-card h3 {
+
+
+    margin-bottom:15px;
+
+
+    color:#555;
+
+
+}
+
+
+
+.resumo-card p {
+
+
+    font-size:20px;
+
+
+    font-weight:bold;
+
+
+    color:#222;
+
+
+}
+
+
+
+
+
+
+/* =====================================
+   ESTOQUE BAIXO
+===================================== */
+
+
+.estoque-section {
+
+
+    margin-top:40px;
+
+
+}
+
+
+
+
+#estoqueBaixo {
+
+
+    background:#fff;
+
+
+    padding:25px;
+
+
+    border-radius:15px;
+
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,0.12);
+
+
+}
+
+
+
+
+#estoqueBaixo p {
+
+
+    margin:10px 0;
+
+
+}
+
+
+
+
+
+
+/* =====================================
+   PRODUTOS MAIS VENDIDOS
+===================================== */
+
+
+.vendidos-section {
+
+
+    margin-top:40px;
+
+
+}
+
+
+
+
+#maisVendidos {
+
+
+    background:#fff;
+
+
+    padding:25px;
+
+
+    border-radius:15px;
+
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,0.12);
+
+
+}
+
+
+
+
+#maisVendidos p {
+
+
+    margin:10px 0;
+
+
+    font-size:18px;
+
+
+}
+
+/* ============================== PARTE TRÊS ========================================= */
+/* =====================================
+   GRÁFICOS
+===================================== */
+.graficos-dashboard {
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:30px;
+    padding-bottom:60px;
+}
+
+.grafico-card {
+    position:relative;
+    min-width:0;
+    height:590px;
+    padding:25px;
+    background:#fff;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.12);
+    box-sizing:border-box;
+}
+
+.grafico-card h3 {
+    margin:0 0 20px;
+    text-align:center;
+}
+
+.grafico-card canvas {
+    display:block;
+    width:100% !important;
+    height:100% !important;
+}
+
+.grafico-toolbar {
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.grafico-toolbar label {
+    font-weight:600;
+    color:#555;
+}
+
+.grafico-toolbar select {
+    padding:8px 12px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    background:#fff;
+    cursor:pointer;
+}
+
+#containerGraficoProdutos {
+    position:relative;
+    width:100%;
+    height:430px;
+    min-width:0;
+}
+
+#containerGraficoProdutos canvas {
+    width:100% !important;
+    height:100% !important;
+}
+
+@media(max-width:900px) {
+
+    .graficos-dashboard {
+        grid-template-columns:1fr;
+    }
+
+    .grafico-card {
+        height:560px;
+    }
+
+    #containerGraficoProdutos {
+        height:430px;
+    }
+
+}
+
+@media(max-width:600px) {
+
+    .grafico-card {
+        height:560px;
+        padding:20px;
+    }
+
+    #containerGraficoProdutos {
+        height:430px;
+    }
+
+}

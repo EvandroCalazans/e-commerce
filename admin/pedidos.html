@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Pedidos</title>
+
+    <link rel="stylesheet" href="../assets/style.css">
+
+    <script src="auth-admin.js" defer></script>
+    <script src="pedidos-admin.js" defer></script>
+</head>
+
+<body>
+    <header class="admin-header">
+        <h1>Pedidos</h1>
+
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="pedidos.html">Pedidos</a>
+            <a href="clientes.html">Clientes</a>
+        </nav>
+    </header>
+
+    <section class="admin-container">
+        <h2 class="title_pedidos_h2">Lista de Pedidos</h2>
+
+        <div class="filtro-pedidos">
+            <label for="buscarPedido">Buscar:</label>
+
+            <input type="text" id="buscarPedido" placeholder="Número do pedido ou cliente">
+
+            <label for="filtroStatus">Filtrar por:</label>
+
+            <select id="filtroStatus">
+                <option value="Todos">Todos</option>
+                <option value="Pendente">Pendente</option>
+                <option value="Pago">Pago</option>
+                <option value="Enviado">Enviado</option>
+                <option value="Entregue">Entregue</option>
+                <option value="Cancelado">Cancelado</option>
+            </select>
+        </div>
+
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th data-coluna="id">ID</th>
+                    <th data-coluna="cliente">Cliente</th>
+                    <th data-coluna="valor_total">Total da Compra</th>
+                    <th data-coluna="frete">Frete</th>
+                    <th data-coluna="status">Status</th>
+                    <th>Alterar Status</th>
+                    <th data-coluna="data_pedido">Data</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody id="listaPedidos"></tbody>
+        </table>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        
+        <link rel="stylesheet" href="assets/style.css">
+        
+        <script src="assets/carrinho.js"></script>
+        <script src="assets/script.js" defer></script>
+        
+        <title>Checkout</title>
+        </head>
+
+<body>
+    <h2>Finalizar Pedido</h2>
+
+    <form>
+        <input type="text" placeholder="CEP">
+
+        <button type="button" onclick="calcularFrete()">Calcular Frete</button>
+
+        <p id="subtotal"></p>
+        <p id="frete"></p>
+        <p id="total-pedido"></p>
+
+        <select>
+            <option>PIX</option>
+            <option>Cartão de Crédito</option>
+            <option>Boleto</option>
+        </select>
+
+        <button type="button" id="btn-finalizar" onclick="finalizarCompra()" disabled>
+            Finalizar Compra
+        </button>
+    </form>
+
+    <script src="assets/checkout.js"></script>
+</body>
+
+</html>
