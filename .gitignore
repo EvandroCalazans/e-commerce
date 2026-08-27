@@ -1,5 +1,6 @@
-﻿.env
+.env
 node_modules/
 *.backup.js
 *.backup.sql
 ~$*
+.vscode/
