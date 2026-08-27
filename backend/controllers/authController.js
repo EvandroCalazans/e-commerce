@@ -77,7 +77,7 @@ exports.login = async (req, res) => {
                         id: cliente.id,
                         email: cliente.email
                     },
-                    "CHAVE_SECRETA",
+                    process.env.JWT_SECRET,
                     {
                         expiresIn: "2h"
                     }
