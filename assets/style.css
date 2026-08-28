@@ -362,11 +362,57 @@ select:focus-visible {
     max-width: 1400px;
     margin: 20px auto;
     padding: 0 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: minmax(250px, 1fr) minmax(400px, 3fr) 220px;
+    align-items: start;
     gap: 20px;
+}
+
+.categorias {
+    display: flex;
     flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 8px;
+    row-gap: 3px;
+    max-height: 88px;
+    overflow-y: auto;
+    padding: 2px 0;
+}
+
+.categoria-btn {
+    flex: 0 0 auto;
+    min-height: 36px;
+    padding: 8px 14px;
+    background: var(--cor-white);
+    color: var(--cor-texto);
+    border: 1px solid var(--cor-border);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    white-space: nowrap;
+    transition: .25s ease;
+}
+
+.categoria-btn:hover {
+    background: var(--cor-primary-light);
+    color: var(--cor-primary-hover);
+    border-color: rgba(25, 135, 84, .30);
+    box-shadow: none;
+    transform: none;
+}
+
+.categoria-btn.ativo {
+    background: var(--cor-primary);
+    color: var(--cor-white);
+    border-color: var(--cor-primary);
+}
+
+.categoria-btn.ativo:hover {
+    background: var(--cor-primary-hover);
+    color: var(--cor-white);
+    border-color: var(--cor-primary-hover);
 }
 
 .busca {
@@ -407,6 +453,7 @@ select:focus-visible {
     cursor: pointer;
     font-size: 15px;
     transition: .25s ease;
+    align-self: start;
 }
 
 
