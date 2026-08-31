@@ -1,6 +1,16 @@
 let todosProdutos = [];
 let categoriaSelecionada = "todos";
 
+const parametros =
+    new URLSearchParams(window.location.search);
+
+const categoriaInicial =
+    parametros.get("categoria");
+
+if (categoriaInicial) {
+    categoriaSelecionada = categoriaInicial;
+}
+
 function exibirProdutos(produtos) {
     const container = document.getElementById("lista-produtos");
 
@@ -21,11 +31,15 @@ function exibirProdutos(produtos) {
                     ${p.categoria || "Sem categoria"}
                 </span>
 
-                <p>
+                <div class="descricao-produto">
+                    ${p.descricao || "Sem descrição disponível."}
+                </div>
+
+                <div>
                     R$ ${Number(p.preco)
                         .toFixed(2)
                         .replace(".", ",")}
-                </p>
+                </div>
 
                 <button
                     class="btn"
@@ -97,30 +111,9 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(res => res.json())
         .then(produtos => {
             todosProdutos = produtos;
-            atualizarLista();
 
             // ==========================
-            // BUSCA
-            // ==========================
-
-            const campoBusca = document.querySelector(".busca");
-
-            if (campoBusca) {
-                campoBusca.addEventListener("input", atualizarLista);
-            }
-
-            // ==========================
-            // ORDENAÇÃO
-            // ==========================
-
-            const ordenacao = document.getElementById("ordenacao");
-
-            if (ordenacao) {
-                ordenacao.addEventListener("change", atualizarLista);
-            }
-
-            // ==========================
-            // BOTÕES DE CATEGORIA
+            // CATEGORIAS
             // ==========================
 
             const containerCategorias =
@@ -143,6 +136,21 @@ document.addEventListener("DOMContentLoaded", () => {
                     botao.dataset.categoria = categoria;
                     botao.textContent = categoria;
 
+                    if (categoria === categoriaSelecionada) {
+                        botao.classList.add("ativo");
+                    }
+
+                    if (categoriaInicial) {
+                        const botaoTodos =
+                            containerCategorias.querySelector(
+                                '[data-categoria="todos"]'
+                            );
+                    
+                        if (botaoTodos) {
+                            botaoTodos.classList.remove("ativo");
+                        }
+                    }
+
                     containerCategorias.appendChild(botao);
                 });
 
@@ -150,6 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     .querySelectorAll(".categoria-btn")
                     .forEach(botao => {
                         botao.addEventListener("click", () => {
+
                             document
                                 .querySelectorAll(".categoria-btn")
                                 .forEach(b =>
@@ -157,6 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 );
 
                             botao.classList.add("ativo");
+
                             categoriaSelecionada =
                                 botao.dataset.categoria;
 
@@ -164,9 +174,46 @@ document.addEventListener("DOMContentLoaded", () => {
                         });
                     });
             }
+
+            // ==========================
+            // BUSCA
+            // ==========================
+
+            const campoBusca =
+                document.querySelector(".busca");
+
+            if (campoBusca) {
+                campoBusca.addEventListener(
+                    "input",
+                    atualizarLista
+                );
+            }
+
+            // ==========================
+            // ORDENAÇÃO
+            // ==========================
+
+            const ordenacao =
+                document.getElementById("ordenacao");
+
+            if (ordenacao) {
+                ordenacao.addEventListener(
+                    "change",
+                    atualizarLista
+                );
+            }
+
+            // ==========================
+            // EXIBIR PRODUTOS
+            // ==========================
+
+            atualizarLista();
         })
         .catch(err => {
-            console.error("Erro ao carregar produtos:", err);
+            console.error(
+                "Erro ao carregar produtos:",
+                err
+            );
 
             const container =
                 document.getElementById("lista-produtos");

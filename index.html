@@ -8,9 +8,12 @@
     <link rel="stylesheet" href="assets/style.css">
 
     <script src="assets/script.js" defer></script>
+    <script src="assets/home.js" defer></script>
+    <script src="assets/carrinho.js"></script>
 
     <title>Loja Virtual Completa</title>
 </head>
+
 
 <body>
     <header>
@@ -29,10 +32,111 @@
             <a href="#" id="link-sair" style="display: none;">Sair</a>
         </nav>   
     </header>
-    
+
     <section class="banner">
-        <h2>Promoções Imperdíveis</h2>
+        <div class="banner-conteudo">
+            <p class="banner-destaque">
+                OFERTAS ESPECIAIS
+            </p>
+    
+            <h2>
+                Promoções Imperdíveis
+            </h2>
+    
+            <p class="banner-texto">
+                Produtos de qualidade,
+                ótimos preços e muitas ofertas para você.
+            </p>
+    
+            <a href="produtos.html" class="btn banner-btn">Ver Produtos</a>
+        </div>
     </section>
+    
+    <section class="beneficios">
+        <div class="beneficio">
+    
+            <div class="beneficio-icone">
+                🛒
+            </div>  
+
+            <div class="beneficio-conteudo">
+                <h3>Compra Fácil</h3>
+    
+                <p>
+                    Escolha seus produtos e faça seu pedido
+                    de forma simples e rápida.
+                </p>
+            </div> 
+        </div>
+     
+        <div class="beneficio">
+            <div class="beneficio-icone">
+                🔒
+            </div> 
+            <div class="beneficio-conteudo">
+                <h3>Compra Segura</h3>
+    
+                <p>
+                    Tenha uma experiência de compra
+                    simples e segura.
+                </p>
+            </div>  
+        </div>
+      
+        <div class="beneficio">  
+            <div class="beneficio-icone">
+                🚚
+            </div>  
+            <div class="beneficio-conteudo">
+                <h3>Entrega Facilitada</h3>
+    
+                <p>
+                    Consulte as opções disponíveis
+                    para receber seu pedido.
+                </p>
+            </div>  
+        </div> 
+    </section>
+
+    <section class="apresentacao">
+        <h2>Bem-vindo à Minha Loja Virtual</h2>
+    
+        <p>
+            Encontre produtos de qualidade, preços especiais e uma experiência
+            de compra simples, rápida e segura.
+        </p>
+
+        <p>
+            Navegue pelas categorias, escolha seus produtos favoritos e
+            faça seu pedido com facilidade.
+        </p>
+    </section>
+
+    <section class="secao-categorias">
+        <h2>Encontre por Categoria</h2>
+    
+        <div id="categorias-home" class="categorias-home">
+            <p>Carregando categorias...</p>
+        </div>
+    </section>
+
+    <section class="secao-produtos-destaque">
+        <h2>Produtos em Destaque</h2>
+    
+        <p class="subtitulo-destaque">
+            Confira alguns dos produtos disponíveis em nossa loja.
+        </p>
+    
+        <div id="produtos-destaque" class="produtos-destaque">
+            <p>Carregando produtos...</p>
+        </div>
+    
+        <div class="ver-todos-produtos">
+    
+            <a href="produtos.html" class="btn">Ver Todos os Produtos</a>  
+        </div>
+    </section>
+
       
     <footer>
         <p>&copy; Loja Virtual - ECCode - Web Solutions</p>

@@ -1,40 +1,88 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        
-        <link rel="stylesheet" href="assets/style.css">
-        
-        <script src="assets/carrinho.js"></script>
-        <script src="assets/script.js" defer></script>
-        
-        <title>Checkout</title>
-        </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/style.css">
+
+    <script src="assets/carrinho.js" defer></script>
+    <script src="assets/script.js" defer></script>
+    <script src="assets/checkout.js"></script>
+
+    <title>Checkout</title>
+</head>
 
 <body>
     <h2>Finalizar Pedido</h2>
 
-    <form>
-        <input type="text" placeholder="CEP">
+    <!-- ========================== -->
+    <!-- DADOS PARA ENTREGA -->
+    <!-- ========================== -->
+
+    <section class="dados-entrega">
+        <h3>Dados para Entrega</h3>
+
+        <div id="dados-entrega">
+            <p>
+                Carregando dados do cliente...
+            </p>
+        </div>
+    </section>
+
+    <!-- ========================== -->
+    <!-- ENTREGA -->
+    <!-- ========================== -->
+
+    <section>
+        <h3>Entrega</h3>
+
+        <input
+            type="text"
+            id="cep"
+            placeholder="CEP"
+        >
 
         <button type="button" onclick="calcularFrete()">Calcular Frete</button>
+
+    </section>
+
+
+    <!-- ========================== -->
+    <!-- RESUMO DO PEDIDO -->
+    <!-- ========================== -->
+
+    <section>
+        <h3>Resumo do Pedido</h3>
 
         <p id="subtotal"></p>
         <p id="frete"></p>
         <p id="total-pedido"></p>
+    </section>
 
-        <select>
-            <option>PIX</option>
-            <option>Cartão de Crédito</option>
-            <option>Boleto</option>
+    <!-- ========================== -->
+    <!-- FORMA DE PAGAMENTO -->
+    <!-- ========================== -->
+
+    <section>
+        <h3>Forma de Pagamento</h3>
+
+        <select id="forma-pagamento">
+            <option value="PIX">PIX</option>
+            <option value="Cartão de Crédito">Cartão de Crédito</option>
+            <option value="Boleto">Boleto</option>
         </select>
+    </section>
 
-        <button type="button" id="btn-finalizar" onclick="finalizarCompra()" disabled>
-            Finalizar Compra
-        </button>
-    </form>
 
-    <script src="assets/checkout.js"></script>
+    <!-- ========================== -->
+    <!-- FINALIZAR COMPRA -->
+    <!-- ========================== -->
+
+    <button type="button" id="btn-finalizar" onclick="finalizarCompra()" disabled>
+        Finalizar Compra
+    </button>
+
 </body>
-
 </html>

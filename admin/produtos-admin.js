@@ -4,9 +4,22 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("formProduto");
 
     const tabela =
-        document.querySelector("#tabelaProdutos tbody");
+        document.querySelector(
+            "#tabelaProdutos tbody"
+        );
+
+    const colunasOrdenaveis =
+        document.querySelectorAll(
+            ".coluna-ordenavel"
+        );
 
     let idEditando = null;
+
+    let produtosCarregados = [];
+
+    let colunaAtual = "id";
+
+    let ordemAtual = "asc";
 
     // ==========================
     // SALVAR OU ATUALIZAR
@@ -52,8 +65,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             headers: {
                 "Content-Type": "application/json",
+
                 "Authorization":
-                    `Bearer ${localStorage.getItem("tokenAdmin")}`
+                    `Bearer ${localStorage.getItem(
+                        "tokenAdmin"
+                    )}`
             },
 
             body:
@@ -101,48 +117,169 @@ document.addEventListener("DOMContentLoaded", () => {
 
             .then(produtos => {
 
-                tabela.innerHTML = "";
+                produtosCarregados =
+                    produtos;
 
-                produtos.forEach(p => {
+                ordenarProdutos();
+            })
 
-                    tabela.innerHTML += `
-                        <tr>
-                            <td>${p.id}</td>
+            .catch(erro => {
 
-                            <td>${p.nome}</td>
-
-                            <td>
-                                ${p.categoria || "-"}
-                            </td>
-
-                            <td>
-                                R$ ${Number(p.preco)
-                                    .toFixed(2)
-                                    .replace(".", ",")}
-                            </td>
-
-                            <td>
-                                ${p.estoque}
-                            </td>
-
-                            <td>
-                                <button
-                                    onclick="editarProduto(${p.id})"
-                                >
-                                    Editar
-                                </button>
-
-                                <button
-                                    onclick="excluirProduto(${p.id})"
-                                >
-                                    Excluir
-                                </button>
-                            </td>
-                        </tr>
-                    `;
-                });
+                console.error(
+                    "Erro ao carregar produtos:",
+                    erro
+                );
             });
     }
+
+    // ==========================
+    // ORDENAR PRODUTOS
+    // ==========================
+
+    function ordenarProdutos() {
+
+        const produtosOrdenados =
+            [...produtosCarregados];
+
+        produtosOrdenados.sort(
+            (a, b) => {
+
+                let valorA =
+                    a[colunaAtual];
+
+                let valorB =
+                    b[colunaAtual];
+
+                if (
+                    colunaAtual === "id"
+                ) {
+
+                    valorA =
+                        Number(valorA);
+
+                    valorB =
+                        Number(valorB);
+
+                    return ordemAtual === "asc"
+                        ? valorA - valorB
+                        : valorB - valorA;
+                }
+
+                valorA =
+                    String(
+                        valorA || ""
+                    );
+
+                valorB =
+                    String(
+                        valorB || ""
+                    );
+
+                const resultado =
+                    valorA.localeCompare(
+                        valorB,
+                        "pt-BR",
+                        {
+                            sensitivity:
+                                "base"
+                        }
+                    );
+
+                return ordemAtual === "asc"
+                    ? resultado
+                    : -resultado;
+            }
+        );
+
+        mostrarProdutos(
+            produtosOrdenados
+        );
+    }
+
+    // ==========================
+    // MOSTRAR PRODUTOS
+    // ==========================
+
+    function mostrarProdutos(produtos) {
+
+        tabela.innerHTML = "";
+
+        produtos.forEach(p => {
+
+            tabela.innerHTML += `
+                <tr>
+                    <td>${p.id}</td>
+
+                    <td>${p.nome}</td>
+
+                    <td>
+                        ${p.categoria || "-"}
+                    </td>
+
+                    <td>
+                        R$ ${Number(p.preco)
+                            .toFixed(2)
+                            .replace(".", ",")}
+                    </td>
+
+                    <td>
+                        ${p.estoque}
+                    </td>
+
+                    <td>
+                        <button
+                            onclick="editarProduto(${p.id})"
+                        >
+                            Editar
+                        </button>
+
+                        <button
+                            onclick="excluirProduto(${p.id})"
+                        >
+                            Excluir
+                        </button>
+                    </td>
+                </tr>
+            `;
+        });
+    }
+
+    // ==========================
+    // CLIQUE PARA ORDENAR
+    // ==========================
+
+    colunasOrdenaveis.forEach(coluna => {
+
+        coluna.addEventListener(
+            "click",
+            () => {
+
+                const novaColuna =
+                    coluna.dataset.ordenar;
+
+                if (
+                    colunaAtual ===
+                    novaColuna
+                ) {
+
+                    ordemAtual =
+                        ordemAtual === "asc"
+                            ? "desc"
+                            : "asc";
+
+                } else {
+
+                    colunaAtual =
+                        novaColuna;
+
+                    ordemAtual =
+                        "asc";
+                }
+
+                ordenarProdutos();
+            }
+        );
+    });
 
     // ==========================
     // EDITAR
@@ -165,22 +302,34 @@ document.addEventListener("DOMContentLoaded", () => {
                     return;
                 }
 
-                document.getElementById("nome").value =
+                document.getElementById(
+                    "nome"
+                ).value =
                     produto.nome;
 
-                document.getElementById("categoria").value =
+                document.getElementById(
+                    "categoria"
+                ).value =
                     produto.categoria || "";
 
-                document.getElementById("preco").value =
+                document.getElementById(
+                    "preco"
+                ).value =
                     produto.preco;
 
-                document.getElementById("estoque").value =
+                document.getElementById(
+                    "estoque"
+                ).value =
                     produto.estoque;
 
-                document.getElementById("imagem").value =
+                document.getElementById(
+                    "imagem"
+                ).value =
                     produto.imagem || "";
 
-                document.getElementById("descricao").value =
+                document.getElementById(
+                    "descricao"
+                ).value =
                     produto.descricao || "";
 
                 idEditando = id;
@@ -214,7 +363,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             headers: {
                 "Authorization":
-                    `Bearer ${localStorage.getItem("tokenAdmin")}`
+                    `Bearer ${localStorage.getItem(
+                        "tokenAdmin"
+                    )}`
             }
         })
 
@@ -229,6 +380,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 carregarProdutos();
             });
     };
+
+    // ==========================
+    // INICIAR
+    // ==========================
 
     carregarProdutos();
 

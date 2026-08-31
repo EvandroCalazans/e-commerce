@@ -1,106 +1,149 @@
 console.log("CADASTRO.JS CARREGADO");
 
-
 document
-.getElementById("cadastroForm")
-.addEventListener(
-"submit",
-async (e) => {
+    .getElementById("cadastroForm")
+    .addEventListener("submit", async (e) => {
 
+        e.preventDefault();
 
-    e.preventDefault();
+        const nome =
+            document.getElementById("nome").value.trim();
 
+        const email =
+            document.getElementById("email").value.trim();
 
-    const nome =
-    document.getElementById("nome").value;
+        const senha =
+            document.getElementById("senha").value;
 
+        const telefone =
+            document.getElementById("telefone").value.trim();
 
-    const email =
-    document.getElementById("email").value;
+        const cep =
+            document.getElementById("cep").value.trim();
 
+        const logradouro =
+            document.getElementById("logradouro").value.trim();
 
-    const senha =
-    document.getElementById("senha").value;
+        const numero =
+            document.getElementById("numero").value.trim();
 
+        const complemento =
+            document.getElementById("complemento").value.trim();
 
+        const bairro =
+            document.getElementById("bairro").value.trim();
 
-    try {
+        const cidade =
+            document.getElementById("cidade").value.trim();
 
+        const estado =
+            document.getElementById("estado").value.trim().toUpperCase();
 
-        const resposta =
-        await fetch(
-            "http://localhost:3000/api/clientes/cadastro",
-            {
+        try {
+            const resposta =
+                await fetch(
+                    "http://localhost:3000/api/clientes/cadastro",
+                    {
+                        method: "POST",
 
-                method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
 
-                headers: {
+                        body: JSON.stringify({
+                            nome,
+                            email,
+                            senha,
+                            telefone,
+                            cep,
+                            logradouro,
+                            numero,
+                            complemento,
+                            bairro,
+                            cidade,
+                            estado
+                        })
+                    }
+                );
 
-                    "Content-Type":
-                    "application/json"
+            const dados =
+                await resposta.json();
 
-                },
+            console.log(
+                "Resposta servidor:",
+                dados
+            );
 
-                body: JSON.stringify({
+            alert(
+                dados.mensagem
+            );
 
-                    nome,
-
-                    email,
-
-                    senha
-
-                })
-
+            if (resposta.ok) {
+                document
+                    .getElementById("cadastroForm")
+                    .reset();
             }
-        );
 
+        } catch (erro) {
+            console.error(
+                "ERRO NO CADASTRO:",
+                erro
+            );
 
+            alert(
+                "Erro ao conectar com o servidor"
+            );
+        }
+    });
 
-        const dados =
-        await resposta.json();
+// ==========================
+// NAVEGAÇÃO COM ENTER
+// ==========================
 
+const camposCadastro = [
+    "nome",
+    "email",
+    "senha",
+    "telefone",
+    "cep",
+    "logradouro",
+    "numero",
+    "complemento",
+    "bairro",
+    "cidade",
+    "estado"
+];
 
+camposCadastro.forEach((id, indice) => {
 
-        console.log(
-            "Resposta servidor:",
-            dados
-        );
+    const campo = document.getElementById(id);
 
+    if (!campo) return;
 
+    campo.addEventListener("keydown", (e) => {
 
-        alert(
-            dados.mensagem
-        );
+        if (e.key !== "Enter") return;
 
+        e.preventDefault();
 
+        const proximoIndice = indice + 1;
 
-        if (resposta.ok) {
+        if (proximoIndice < camposCadastro.length) {
 
+            const proximoCampo =
+                document.getElementById(
+                    camposCadastro[proximoIndice]
+                );
+
+            if (proximoCampo) {
+                proximoCampo.focus();
+            }
+
+        } else {
 
             document
-            .getElementById("cadastroForm")
-            .reset();
-
-
+                .getElementById("cadastroForm")
+                .requestSubmit();
         }
-
-
-
-    } catch (erro) {
-
-
-        console.error(
-            "ERRO NO CADASTRO:",
-            erro
-        );
-
-
-        alert(
-            "Erro ao conectar com o servidor"
-        );
-
-
-    }
-
-
+    });
 });

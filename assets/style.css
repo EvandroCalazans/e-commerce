@@ -29,6 +29,7 @@
 
 html {
     scroll-behavior: smooth;
+    min-height: 100%;
 }
 
 body {
@@ -140,16 +141,146 @@ nav a.active::after {
 .banner {
     background: linear-gradient(135deg, #198754, #146c43);
     color: var(--cor-white);
-    padding: 42px 20px;
+    padding: 55px 20px;
     text-align: center;
 }
 
-.banner h2 {
-    opacity: .92;
-    font-size: 22px;
-    letter-spacing: 3px;
+.banner-conteudo {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
+.banner h2 {
+    margin-bottom: 12px;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.banner p {
+    margin-bottom: 25px;
+    font-size: 17px;
+    opacity: .92;
+}
+
+.btn-banner {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 11px 24px;
+    background: var(--cor-white);
+    color: var(--cor-primary-hover);
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    transition: .25s ease;
+}
+
+.btn-banner:hover {
+    background: var(--cor-primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, .15);
+}
+
+
+/* ==========================================
+   A P R E S E N T A Ç Ã O  D A  L O J A
+========================================== */
+.apresentacao {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 55px 25px 45px;
+    text-align: center;
+}
+
+.apresentacao h2 {
+    margin-bottom: 18px;
+    color: var(--cor-dark);
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.apresentacao h2::after {
+    content: "";
+    display: block;
+    width: 45px;
+    height: 3px;
+    margin: 10px auto 0;
+    background: var(--cor-primary);
+    border-radius: 3px;
+}
+
+.apresentacao p {
+    max-width: 750px;
+    margin: 12px auto;
+    color: var(--cor-texto-suave);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* ==========================================
+   C A T E G O R I A S  D A  H O M E
+========================================== */
+.secao-categorias {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 25px 55px;
+    text-align: center;
+}
+
+.secao-categorias h2 {
+    margin-bottom: 25px;
+    color: var(--cor-dark);
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.secao-categorias h2::after {
+    content: "";
+    display: block;
+    width: 45px;
+    height: 3px;
+    margin: 10px auto 0;
+    background: var(--cor-primary);
+    border-radius: 3px;
+}
+
+.categorias-home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.categoria-home-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 10px 18px;
+    background: var(--cor-white);
+    color: var(--cor-texto);
+    border: 1px solid var(--cor-border);
+    border-radius: 22px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .4px;
+    transition: .25s ease;
+}
+
+.categoria-home-btn:hover {
+    background: var(--cor-primary-light);
+    color: var(--cor-primary-hover);
+    border-color: rgba(25, 135, 84, .30);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px var(--cor-shadow);
+}
 
 /* ==========================================
    B O T Õ E S  G E R A I S
@@ -543,7 +674,6 @@ select:focus-visible {
     justify-content: flex-start;
     align-items: center;
     min-height: 60vh;
-    padding: 30px 20px;
 }
 
 .page_carrinho {
@@ -1133,7 +1263,9 @@ footer a:hover {
 
 
 /* ==========================================
-   A J U S T E S  F I N A I S
+=============================================
+        A J U S T E S  F I N A I S
+ ============================================  
 ========================================== */
 #lista-produtos {
     display: grid !important;
@@ -1148,3 +1280,359 @@ footer a:hover {
     margin-left: 20px;
     white-space: nowrap;
 }
+
+.coluna-ordenavel {
+    cursor: pointer;
+    user-select: none;
+}
+
+.coluna-ordenavel:hover {
+    opacity: 0.8;
+}
+
+/* Descrição do Produto */
+.descricao-produto {
+    margin: 8px 0 12px;
+    color: #7a858f;
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: center;
+}
+
+/* Home Banner */
+.banner {
+    padding: 30px 20px;
+}
+
+.banner-conteudo {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.banner-destaque {
+    margin-bottom: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    opacity: .85;
+}
+
+.banner h2 {
+    margin-bottom: 15px;
+    font-size: 35px;
+    letter-spacing: 2px;
+}
+
+.banner-texto {
+    max-width: 600px;
+    margin: 0 auto 25px;
+    font-size: 17px;
+    line-height: 1.6;
+    opacity: .92;
+}
+
+.banner-btn {
+    background: var(--cor-white);
+    color: var(--cor-primary);
+    letter-spacing: 2px;
+}
+
+.banner-btn:hover {
+    background: var(--cor-background-light);
+    color: var(--cor-primary-hover);
+}
+
+
+/* Home Categorias */
+.secao-categorias {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 30px;
+}
+
+.secao-categorias h2 {
+    margin-bottom: 30px;
+    color: var(--cor-dark);
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.secao-categorias h2::after {
+    content: "";
+    display: block;
+    width: 45px;
+    height: 3px;
+    margin: 10px auto 0;
+    background: var(--cor-primary);
+    border-radius: 3px;
+}
+
+.categorias-home {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+.categoria-home-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 70px;
+    padding: 15px 18px;
+
+    background: var(--cor-white);
+    color: var(--cor-dark);
+
+    border: 1px solid var(--cor-border);
+    border-radius: 10px;
+
+    box-shadow: 0 4px 12px var(--cor-shadow);
+
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: .5px;
+
+    transition: .25s ease;
+}
+
+.categoria-home-btn:hover {
+    background: var(--cor-primary-light);
+    color: var(--cor-primary-hover);
+    border-color: rgba(25, 135, 84, .30);
+
+    box-shadow: 0 8px 18px var(--cor-shadow-hover);
+
+    transform: translateY(-3px);
+}
+
+
+/* ======================================================
+   R E S P O N S I V I D A D E
+====================================================== */
+
+@media (max-width: 900px) {
+
+    .categorias-home {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+
+    .secao-categorias {
+        padding: 40px 15px;
+    }
+
+    .categorias-home {
+        grid-template-columns: 1fr;
+    }
+
+    .categoria-home-btn {
+        min-height: 60px;
+    }
+}
+
+/* Benefícios */
+.beneficios {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 35px 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.beneficio {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 25px;
+    background: var(--cor-white);
+    border: 1px solid var(--cor-border);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px var(--cor-shadow);
+    transition: .25s ease;
+}
+
+.beneficio:hover {
+    transform: translateY(-4px);
+    border-color: rgba(25, 135, 84, .30);
+    box-shadow: 0 9px 20px var(--cor-shadow-hover);
+}
+
+.beneficio-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 55px;
+    height: 55px;
+    background: var(--cor-primary-light);
+    border-radius: 50%;
+    font-size: 26px;
+}
+
+.beneficio-conteudo h3 {
+    margin-bottom: 5px;
+    color: var(--cor-dark);
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.beneficio-conteudo p {
+    color: var(--cor-texto-suave);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* ======================================================
+   R E S P O N S I V I D A D E  —  B E N E F Í C I O S
+====================================================== */
+
+@media (max-width: 900px) {
+
+    .beneficios {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .beneficios {
+        padding: 25px 15px;
+    }
+
+    .beneficio {
+        padding: 20px;
+    }
+}
+
+/* ==========================================
+   P R O D U T O S  E M  D E S T A Q U E
+========================================== */
+
+.secao-produtos-destaque {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 45px 30px 25px;
+}
+
+.secao-produtos-destaque h2 {
+    color: var(--cor-dark);
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+}
+
+.secao-produtos-destaque h2::after {
+    content: "";
+    display: block;
+    width: 45px;
+    height: 3px;
+    margin: 10px auto 0;
+    background: var(--cor-primary);
+    border-radius: 3px;
+}
+
+.subtitulo-destaque {
+    color: var(--cor-texto-suave);
+    text-align: center;
+    font-size: 15px;
+    margin: 0 0 30px;
+}
+
+.produtos-destaque {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 26px;
+    align-items: stretch;
+}
+
+.produto-home {
+    min-height: 500px !important;
+}
+
+.produto-home .descricao-produto {
+    margin: 8px 0 12px;
+    color: var(--cor-texto-suave);
+    font-size: 13px;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.produto-home .btn {
+    margin-top: auto;
+}
+
+.ver-todos-produtos {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0 5px;
+}
+
+.ver-todos-produtos .btn {
+    min-width: 220px;
+}
+
+
+/* ==========================================
+   R E S P O N S I V I D A D E
+========================================== */
+
+@media (max-width: 1100px) {
+
+    .produtos-destaque {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+
+    .secao-produtos-destaque {
+        padding: 35px 15px 20px;
+    }
+
+    .secao-produtos-destaque h2 {
+        font-size: 22px;
+    }
+
+    .subtitulo-destaque {
+        font-size: 14px;
+    }
+
+    .produtos-destaque {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .produto-home {
+        min-height: auto !important;
+    }
+
+    .ver-todos-produtos {
+        margin-top: 25px;
+    }
+
+    .ver-todos-produtos .btn {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+

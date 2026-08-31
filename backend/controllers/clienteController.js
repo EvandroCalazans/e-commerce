@@ -10,7 +10,19 @@ exports.cadastrar = async (req, res) => {
 
     try {
 
-        const { nome, email, senha } = req.body;
+        const {
+            nome,
+            email,
+            senha,
+            telefone,
+            cep,
+            logradouro,
+            numero,
+            complemento,
+            bairro,
+            cidade,
+            estado
+        } = req.body;
 
         const verificarEmail = `
             SELECT id
@@ -24,16 +36,18 @@ exports.cadastrar = async (req, res) => {
             async (erro, resultado) => {
 
                 if (erro) {
+
+                    console.error(erro);
+
                     return res.status(500).json({
-                        mensagem:
-                            "Erro ao verificar e-mail"
+                        mensagem: "Erro ao verificar e-mail"
                     });
                 }
 
                 if (resultado.length > 0) {
+
                     return res.status(400).json({
-                        mensagem:
-                            "Este e-mail já está cadastrado"
+                        mensagem: "Este e-mail ja esta cadastrado"
                     });
                 }
 
@@ -43,7 +57,15 @@ exports.cadastrar = async (req, res) => {
                 const dados = {
                     nome,
                     email,
-                    senha: senhaHash
+                    senha: senhaHash,
+                    telefone,
+                    cep,
+                    logradouro,
+                    numero,
+                    complemento,
+                    bairro,
+                    cidade,
+                    estado
                 };
 
                 Cliente.cadastrar(
@@ -51,6 +73,9 @@ exports.cadastrar = async (req, res) => {
                     (erro, resultado) => {
 
                         if (erro) {
+
+                            console.error(erro);
+
                             return res.status(500).json({
                                 mensagem:
                                     "Erro ao cadastrar cliente"
@@ -67,6 +92,8 @@ exports.cadastrar = async (req, res) => {
         );
 
     } catch (error) {
+
+        console.error(error);
 
         res.status(500).json({
             mensagem:
@@ -86,6 +113,14 @@ exports.listarClientesAdmin = (req, res) => {
             c.id,
             c.nome,
             c.email,
+            c.telefone,
+            c.cep,
+            c.logradouro,
+            c.numero,
+            c.complemento,
+            c.bairro,
+            c.cidade,
+            c.estado,
             COUNT(p.id) AS quantidade_pedidos,
             COALESCE(
                 SUM(p.valor_total),
@@ -118,7 +153,7 @@ exports.listarClientesAdmin = (req, res) => {
 };
 
 // ==========================
-// HISTÓRICO DO CLIENTE
+// HISTORICO DO CLIENTE
 // ==========================
 
 exports.historicoCliente = (req, res) => {
@@ -147,7 +182,7 @@ exports.historicoCliente = (req, res) => {
 
                 return res.status(500).json({
                     mensagem:
-                        "Erro ao buscar histórico do cliente"
+                        "Erro ao buscar historico do cliente"
                 });
             }
 
@@ -189,7 +224,7 @@ exports.login = (req, res) => {
 
                 return res.status(401).json({
                     mensagem:
-                        "Email ou senha inválidos"
+                        "Email ou senha invalidos"
                 });
             }
 
@@ -205,7 +240,7 @@ exports.login = (req, res) => {
 
                 return res.status(401).json({
                     mensagem:
-                        "Email ou senha inválidos"
+                        "Email ou senha invalidos"
                 });
             }
 
@@ -216,7 +251,15 @@ exports.login = (req, res) => {
                 cliente: {
                     id: cliente.id,
                     nome: cliente.nome,
-                    email: cliente.email
+                    email: cliente.email,
+                    telefone: cliente.telefone,
+                    cep: cliente.cep,
+                    logradouro: cliente.logradouro,
+                    numero: cliente.numero,
+                    complemento: cliente.complemento,
+                    bairro: cliente.bairro,
+                    cidade: cliente.cidade,
+                    estado: cliente.estado
                 }
             });
         }
