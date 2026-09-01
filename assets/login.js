@@ -5,7 +5,7 @@ document.getElementById("loginForm").addEventListener("submit", async e => {
     const senha = document.querySelector("input[type=password]").value;
 
     const res = await fetch(
-        "http://localhost:3000/api/clientes/login",
+        "/api/clientes/login",
         {
             method: "POST",
             headers: {
