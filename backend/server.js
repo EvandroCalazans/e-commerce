@@ -121,24 +121,24 @@ console.log(
 // SERVIDOR
 // ==========================
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
 
     console.log(
-        '>>> SERVIDOR INICIOU NA PORTA 3000'
+        `>>> SERVIDOR INICIOU NA PORTA ${PORT}`
     );
 
     console.log(
-        '>>> Site: http://localhost:3000'
+        `>>> Site: http://localhost:${PORT}`
     );
 
     console.log(
-        '>>> API Produtos: http://localhost:3000/api/produtos'
+        `>>> API Produtos: http://localhost:${PORT}/api/produtos`
     );
 
     console.log(
-        '>>> API Pedidos: http://localhost:3000/api/pedidos'
+        `>>> API Pedidos: http://localhost:${PORT}/api/pedidos`
     );
 
 });
